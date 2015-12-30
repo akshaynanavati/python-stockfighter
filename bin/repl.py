@@ -41,11 +41,13 @@ def execute_statement(stmt):
             # status <order_id> <exchange>:<stock>
             pass
         elif tokens[idx] == 'orderbook':
+            # orderbook <exchange>:<stock>
             idx += 1
             exchange, stock = tokens[idx].split(':')
             order = get_orderbook(exchange=exchange, stock=stock)
             pprint(order.json)
         elif tokens[idx] == 'set':
+            # set account <account-number>
             idx += 1
             assert tokens[idx] == 'account'
             idx += 1
