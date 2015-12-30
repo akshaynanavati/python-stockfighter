@@ -4,7 +4,9 @@ A stockfighter API written in Python
 It wraps the api methods described [here](https://starfighter.readme.io/docs/) 
 with Python function calls using the [requests](http://docs.python-requests.org/en/latest/) 
 library. This project is still a WIP, but the basic functionality exists. Things like tests,
-documentation, and error handling are yet to be built.
+documentation, and error handling are yet to be built. This project is simply meant to provide
+a nice python api for accessing the HTTP API provided by stockfighter. Please do not commit
+anything that might give away solutions to any of the stockfighter challenges.
 
 Installing
 --
