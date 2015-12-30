@@ -18,5 +18,5 @@ setup(
     description='A stockfighter Python API',
     long_description='',
     url='https://github.com/akshaynanavati/python-stockfighter',
-    scripts=['bin/repl.py'],
+    scripts=['bin/sfrepl.py'],
 )
