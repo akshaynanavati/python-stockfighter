@@ -149,7 +149,7 @@ def _make_request(path, type_='get', data=None, headers=None):
     response = getattr(requests, type_)(
         '{}{}'.format(SF_API_BASE, path),
         headers=dict({
-            SF_AUTH_HEADER_KEY: API_KEY,
+            SF_AUTH_HEADER_KEY: config.get('api_key'),
         }, **headers),
         json=data,
     )
