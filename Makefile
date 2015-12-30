@@ -12,3 +12,5 @@ clean-pyc:
 # ---- Console ----
 console:
 	@source venv/bin/activate; ipython -i -c 'from stockfighter import api'
+
+.PHONY: venv install clean clean-pyc console
