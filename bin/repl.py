@@ -60,9 +60,7 @@ def execute_statement(stmt):
 
 
 if __name__ == '__main__':
-    print 'entering while'
     while True:
-        print 'in while'
         try:
             ps1 = '{}> '.format(config.get('account'))
             execute_statement(raw_input(ps1))
