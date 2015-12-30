@@ -6,12 +6,12 @@ if __name__ == '__main__':
 
 from pprint import pprint
 
-from lib import config
-from lib.api import (
+from stockfighter import config
+from stockfighter.api import (
     get_orderbook,
     trade_stock,
 )
-from lib.exceptions import (
+from stockfighter.exceptions import (
     SFBaseException,
     SyntaxError_,
 )
