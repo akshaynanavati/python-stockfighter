@@ -23,9 +23,10 @@ Repl
 ----
 This library also provides a repl which can be run with `sfrepl.py` if this package is installed in the current `venv`.
 The repl can be used to buy/sell stocks and view order status from the command line. Supported repl methods:
-    - ``{buy, sell} <order_type> <int> shares of <exchange>:<stock> at <price>``
-    - ``set account <account-number>``
-    - ``orderbook <exchange>:<stock>``
+
+- ``{buy, sell} <order_type> <int> shares of <exchange>:<stock> at <price>``
+- ``set account <account-number>``
+- ``orderbook <exchange>:<stock>``
 
 Contributing
 ----
