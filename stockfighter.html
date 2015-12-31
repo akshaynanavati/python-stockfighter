@@ -1,0 +1,679 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>stockfighter package &mdash; stockfighter 0.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="stockfighter 0.0.2 documentation" href="index.html" />
+    <link rel="prev" title="Welcome to stockfighter’s documentation!" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-stockfighter">
+<span id="stockfighter-package"></span><h1>stockfighter package<a class="headerlink" href="#module-stockfighter" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-stockfighter.api">
+<span id="stockfighter-api-module"></span><h2>stockfighter.api module<a class="headerlink" href="#module-stockfighter.api" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="stockfighter.api.all_orders">
+<code class="descclassname">stockfighter.api.</code><code class="descname">all_orders</code><span class="sig-paren">(</span><em>exchange='TESTEX'</em>, <em>stock=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.all_orders" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="docutils literal"><span class="pre">None</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Orders</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Returns all orders on a given exchange. If specified, narrows down orders to the given stock.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.buy_stock">
+<code class="descclassname">stockfighter.api.</code><code class="descname">buy_stock</code><span class="sig-paren">(</span><em>quantity</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.buy_stock" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>quantity</strong> &#8211; the number of shares to buy</li>
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_STOCK</span></code>.</li>
+<li><strong>price</strong> &#8211; The price to buy at. Defaults to <code class="docutils literal"><span class="pre">None</span></code>. If none or unspecified, the order         becomes a market order.</li>
+<li><strong>order_type</strong> &#8211; The type of order. Should be one of <code class="xref py py-data docutils literal"><span class="pre">MARKET_ORDER</span></code>,         <code class="xref py py-data docutils literal"><span class="pre">LIMIT_ORDER</span></code>, <code class="xref py py-data docutils literal"><span class="pre">FILL_OR_KILL_ORDER</span></code>, <code class="xref py py-data docutils literal"><span class="pre">IMMEDIATE_OR_CANCEL</span></code>.         Defaults to <code class="xref py py-data docutils literal"><span class="pre">MARKET_ORDER</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Order</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Executes a buy order and returns the result.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.delete_order">
+<code class="descclassname">stockfighter.api.</code><code class="descname">delete_order</code><span class="sig-paren">(</span><em>id_</em>, <em>exchange='TESTEX'</em>, <em>stock='FOOBAR'</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.delete_order" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> &#8211; the order id</li>
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_STOCK</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Order</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Deletes the specified order.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.get_orderbook">
+<code class="descclassname">stockfighter.api.</code><code class="descname">get_orderbook</code><span class="sig-paren">(</span><em>exchange='TESTEX'</em>, <em>stock='FOOBAR'</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.get_orderbook" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_STOCK</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Orderbook</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Retrieves the orderbook for a given stock on an exchange.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.get_quote">
+<code class="descclassname">stockfighter.api.</code><code class="descname">get_quote</code><span class="sig-paren">(</span><em>exchange='TESTEX'</em>, <em>stock='FOOBAR'</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.get_quote" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_STOCK</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Quote</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Gets a quote of the latest known order for a given stock on an exchange.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.get_stocks">
+<code class="descclassname">stockfighter.api.</code><code class="descname">get_stocks</code><span class="sig-paren">(</span><em>exchange='TESTEX'</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.get_stocks" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive) from which to retrieve         all stocks. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><code class="xref py py-class docutils literal"><span class="pre">Stocks</span></code></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">The deserialized json response as a schematics object</td>
+</tr>
+</tbody>
+</table>
+<p>Gets all the stocks traded on an exchange.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.healthcheck">
+<code class="descclassname">stockfighter.api.</code><code class="descname">healthcheck</code><span class="sig-paren">(</span><em>venue=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.healthcheck" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>venue</strong> &#8211; a string representing the venue to healthcheck. If None or unspecified,         this function will check the health of the overall stockfighter api</td>
+</tr>
+</tbody>
+</table>
+<p>Raises <a href="#id1"><span class="problematic" id="id2">:py:exception:`HealthcheckFailed`</span></a> if the healthcheck fails i.e. the     stockfighter servers are down.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.order_status">
+<code class="descclassname">stockfighter.api.</code><code class="descname">order_status</code><span class="sig-paren">(</span><em>id_</em>, <em>exchange='TESTEX'</em>, <em>stock='FOOBAR'</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.order_status" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> &#8211; the order id</li>
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_STOCK</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Order</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Retrieves the order status for the specified order on the given exchange.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.sell_stock">
+<code class="descclassname">stockfighter.api.</code><code class="descname">sell_stock</code><span class="sig-paren">(</span><em>quantity</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.sell_stock" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>quantity</strong> &#8211; the number of shares to sell</li>
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_STOCK</span></code>.</li>
+<li><strong>price</strong> &#8211; The price to buy at. Defaults to <code class="docutils literal"><span class="pre">None</span></code>. If none or unspecified, the order         becomes a market order.</li>
+<li><strong>order_type</strong> &#8211; The type of order. Should be one of <code class="xref py py-data docutils literal"><span class="pre">MARKET_ORDER</span></code>,         <code class="xref py py-data docutils literal"><span class="pre">LIMIT_ORDER</span></code>, <code class="xref py py-data docutils literal"><span class="pre">FILL_OR_KILL_ORDER</span></code>, <code class="xref py py-data docutils literal"><span class="pre">IMMEDIATE_OR_CANCEL</span></code>.         Defaults to <code class="xref py py-data docutils literal"><span class="pre">MARKET_ORDER</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Order</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Executes a sell order and returns the result.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.api.trade_stock">
+<code class="descclassname">stockfighter.api.</code><code class="descname">trade_stock</code><span class="sig-paren">(</span><em>quantity</em>, <em>direction</em>, <em>exchange='TESTEX'</em>, <em>stock='FOOBAR'</em>, <em>price=None</em>, <em>order_type='market'</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.api.trade_stock" title="Permalink to this definition">¶</a></dt>
+<dd><table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>quantity</strong> &#8211; the number of shares to buy or sell</li>
+<li><strong>direction</strong> &#8211; either <code class="docutils literal"><span class="pre">'buy'</span></code> or <code class="docutils literal"><span class="pre">'sell'</span></code></li>
+<li><strong>exchange</strong> &#8211; a string with the exchange name (case sesitive).         Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_EXCHANGE</span></code>.</li>
+<li><strong>stock</strong> &#8211; a string with the stock name (case sensitive) which must be traded in the         exchange. Defaults to <code class="xref py py-data docutils literal"><span class="pre">TEST_STOCK</span></code>.</li>
+<li><strong>price</strong> &#8211; The price to buy at. Defaults to <code class="docutils literal"><span class="pre">None</span></code>. If none or unspecified, the order         becomes a market order.</li>
+<li><strong>order_type</strong> &#8211; The type of order. Should be one of <code class="xref py py-data docutils literal"><span class="pre">MARKET_ORDER</span></code>,         <code class="xref py py-data docutils literal"><span class="pre">LIMIT_ORDER</span></code>, <code class="xref py py-data docutils literal"><span class="pre">FILL_OR_KILL_ORDER</span></code>, <code class="xref py py-data docutils literal"><span class="pre">IMMEDIATE_OR_CANCEL</span></code>.         Defaults to <code class="xref py py-data docutils literal"><span class="pre">MARKET_ORDER</span></code></li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body"><p class="first"><code class="xref py py-class docutils literal"><span class="pre">Order</span></code></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last">The deserialized json response as a schematics object</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Executes a buy or sell order and returns the result.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-stockfighter.config">
+<span id="stockfighter-config-module"></span><h2>stockfighter.config module<a class="headerlink" href="#module-stockfighter.config" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="stockfighter.config.get">
+<code class="descclassname">stockfighter.config.</code><code class="descname">get</code><span class="sig-paren">(</span><em>key</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.config.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.config.init">
+<code class="descclassname">stockfighter.config.</code><code class="descname">init</code><span class="sig-paren">(</span><em>account_number='EXB123456'</em>, <em>key_file='/Users/akshaynanavati/.stockfighter/keys.json'</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.config.init" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.config.reset">
+<code class="descclassname">stockfighter.config.</code><code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.config.reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="stockfighter.config.set_">
+<code class="descclassname">stockfighter.config.</code><code class="descname">set_</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.config.set_" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-stockfighter.constants">
+<span id="stockfighter-constants-module"></span><h2>stockfighter.constants module<a class="headerlink" href="#module-stockfighter.constants" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-stockfighter.exceptions">
+<span id="stockfighter-exceptions-module"></span><h2>stockfighter.exceptions module<a class="headerlink" href="#module-stockfighter.exceptions" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="stockfighter.exceptions.BadRequest">
+<em class="property">exception </em><code class="descclassname">stockfighter.exceptions.</code><code class="descname">BadRequest</code><span class="sig-paren">(</span><em>sc</em>, <em>json=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.exceptions.BadRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.exceptions.SFBaseException" title="stockfighter.exceptions.SFBaseException"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.exceptions.SFBaseException</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="stockfighter.exceptions.HealthcheckFailed">
+<em class="property">exception </em><code class="descclassname">stockfighter.exceptions.</code><code class="descname">HealthcheckFailed</code><span class="sig-paren">(</span><em>sc</em>, <em>json=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.exceptions.HealthcheckFailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.exceptions.SFBaseException" title="stockfighter.exceptions.SFBaseException"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.exceptions.SFBaseException</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="stockfighter.exceptions.SFBaseException">
+<em class="property">exception </em><code class="descclassname">stockfighter.exceptions.</code><code class="descname">SFBaseException</code><span class="sig-paren">(</span><em>sc</em>, <em>json=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.exceptions.SFBaseException" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="stockfighter.exceptions.SyntaxError_">
+<em class="property">exception </em><code class="descclassname">stockfighter.exceptions.</code><code class="descname">SyntaxError_</code><span class="sig-paren">(</span><em>tokens</em>, <em>idx</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.exceptions.SyntaxError_" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.Exception</span></code></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="stockfighter.exceptions.Unauthorized">
+<em class="property">exception </em><code class="descclassname">stockfighter.exceptions.</code><code class="descname">Unauthorized</code><span class="sig-paren">(</span><em>sc</em>, <em>json=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.exceptions.Unauthorized" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.exceptions.SFBaseException" title="stockfighter.exceptions.SFBaseException"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.exceptions.SFBaseException</span></code></a></p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="stockfighter.exceptions.UnknownExchange">
+<em class="property">exception </em><code class="descclassname">stockfighter.exceptions.</code><code class="descname">UnknownExchange</code><span class="sig-paren">(</span><em>sc</em>, <em>json=None</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.exceptions.UnknownExchange" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.exceptions.SFBaseException" title="stockfighter.exceptions.SFBaseException"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.exceptions.SFBaseException</span></code></a></p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-stockfighter.validators">
+<span id="stockfighter-validators-module"></span><h2>stockfighter.validators module<a class="headerlink" href="#module-stockfighter.validators" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="stockfighter.validators.BidOrAsk">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">BidOrAsk</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.BidOrAsk" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.BidOrAsk.isBuy">
+<code class="descname">isBuy</code><em class="property"> = &lt;schematics.types.base.BooleanType object&gt;</em><a class="headerlink" href="#stockfighter.validators.BidOrAsk.isBuy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.BidOrAsk.price">
+<code class="descname">price</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.BidOrAsk.price" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.BidOrAsk.qty">
+<code class="descname">qty</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.BidOrAsk.qty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.Fills">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">Fills</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.Fills" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.Fills.price">
+<code class="descname">price</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Fills.price" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Fills.qty">
+<code class="descname">qty</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Fills.qty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Fills.ts">
+<code class="descname">ts</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Fills.ts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.Order">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">Order</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.Order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.account">
+<code class="descname">account</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.account" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.direction">
+<code class="descname">direction</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.direction" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.fills">
+<code class="descname">fills</code><em class="property"> = &lt;schematics.types.compound.ListType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.fills" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.id">
+<code class="descname">id</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.open">
+<code class="descname">open</code><em class="property"> = &lt;schematics.types.base.BooleanType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.open" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.originalQty">
+<code class="descname">originalQty</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.originalQty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.price">
+<code class="descname">price</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.price" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.qty">
+<code class="descname">qty</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.qty" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.symbol">
+<code class="descname">symbol</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.totalFilled">
+<code class="descname">totalFilled</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.totalFilled" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.ts">
+<code class="descname">ts</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.ts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.type">
+<code class="descname">type</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Order.venue">
+<code class="descname">venue</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Order.venue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.Orderbook">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">Orderbook</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.Orderbook" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.Orderbook.asks">
+<code class="descname">asks</code><em class="property"> = &lt;schematics.types.compound.ListType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Orderbook.asks" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Orderbook.bids">
+<code class="descname">bids</code><em class="property"> = &lt;schematics.types.compound.ListType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Orderbook.bids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Orderbook.symbol">
+<code class="descname">symbol</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Orderbook.symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Orderbook.ts">
+<code class="descname">ts</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Orderbook.ts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Orderbook.venue">
+<code class="descname">venue</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Orderbook.venue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.Orders">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">Orders</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.Orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.Orders.orders">
+<code class="descname">orders</code><em class="property"> = &lt;schematics.types.compound.ListType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Orders.orders" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Orders.venue">
+<code class="descname">venue</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Orders.venue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.Quote">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">Quote</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.Quote" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.ask">
+<code class="descname">ask</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.ask" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.askDepth">
+<code class="descname">askDepth</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.askDepth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.askSize">
+<code class="descname">askSize</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.askSize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.bid">
+<code class="descname">bid</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.bid" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.bidDepth">
+<code class="descname">bidDepth</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.bidDepth" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.bidSize">
+<code class="descname">bidSize</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.bidSize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.last">
+<code class="descname">last</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.last" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.lastSize">
+<code class="descname">lastSize</code><em class="property"> = &lt;schematics.types.base.IntType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.lastSize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.lastTrade">
+<code class="descname">lastTrade</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.lastTrade" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.quoteTime">
+<code class="descname">quoteTime</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.quoteTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.symbol">
+<code class="descname">symbol</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Quote.venue">
+<code class="descname">venue</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Quote.venue" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.SFBaseValidator">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">SFBaseValidator</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.SFBaseValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">schematics.models.Model</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.Stocks">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">Stocks</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.Stocks" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.Stocks.symbols">
+<code class="descname">symbols</code><em class="property"> = &lt;schematics.types.compound.ListType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Stocks.symbols" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="stockfighter.validators.Symbol">
+<em class="property">class </em><code class="descclassname">stockfighter.validators.</code><code class="descname">Symbol</code><span class="sig-paren">(</span><em>raw_data=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#stockfighter.validators.Symbol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#stockfighter.validators.SFBaseValidator" title="stockfighter.validators.SFBaseValidator"><code class="xref py py-class docutils literal"><span class="pre">stockfighter.validators.SFBaseValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="stockfighter.validators.Symbol.name">
+<code class="descname">name</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Symbol.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="stockfighter.validators.Symbol.symbol">
+<code class="descname">symbol</code><em class="property"> = &lt;schematics.types.base.StringType object&gt;</em><a class="headerlink" href="#stockfighter.validators.Symbol.symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">stockfighter package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-stockfighter.api">stockfighter.api module</a></li>
+<li><a class="reference internal" href="#module-stockfighter.config">stockfighter.config module</a></li>
+<li><a class="reference internal" href="#module-stockfighter.constants">stockfighter.constants module</a></li>
+<li><a class="reference internal" href="#module-stockfighter.exceptions">stockfighter.exceptions module</a></li>
+<li><a class="reference internal" href="#module-stockfighter.validators">stockfighter.validators module</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to stockfighter&#8217;s documentation!</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/stockfighter.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Akshay Nanavati.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/stockfighter.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

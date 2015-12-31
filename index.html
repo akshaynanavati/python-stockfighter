@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Welcome to stockfighter’s documentation! &mdash; stockfighter 0.0.2 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="stockfighter 0.0.2 documentation" href="#" />
+    <link rel="next" title="stockfighter package" href="stockfighter.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-stockfighter-s-documentation">
+<h1>Welcome to stockfighter&#8217;s documentation!<a class="headerlink" href="#welcome-to-stockfighter-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>Contents:</p>
+</div>
+<div class="section" id="python-stockfighter">
+<h1>python-stockfighter<a class="headerlink" href="#python-stockfighter" title="Permalink to this headline">¶</a></h1>
+<p>A stockfighter API written in Python</p>
+<p>It wraps the api methods described <a class="reference external" href="https://starfighter.readme.io/docs/">here</a> with Python function calls using the <a class="reference external" href="http://docs.python-requests.org/en/latest/">requests</a>
+library. This project is still a WIP, but the basic functionality exists. Things like tests,
+documentation, and error handling are yet to be built. This project is simply meant to provide
+a nice python api for accessing the HTTP API provided by stockfighter. Please do not commit
+anything that might give away solutions to any of the stockfighter challenges.</p>
+<div class="section" id="installing">
+<h2>Installing<a class="headerlink" href="#installing" title="Permalink to this headline">¶</a></h2>
+<p>This package is not yet on pypi. Thus, install it using pip editable:</p>
+<blockquote>
+<div>$ pip install -e <a class="reference external" href="mailto:git+git&#37;&#52;&#48;github&#46;com">git+git<span>&#64;</span>github<span>&#46;</span>com</a>:akshaynanavati/python-stockfighter&#64;&lt;desired-version&gt;#egg=python-stockfighter</div></blockquote>
+<p>i.e.</p>
+<blockquote>
+<div>$ pip install -e <a class="reference external" href="mailto:git+git&#37;&#52;&#48;github&#46;com">git+git<span>&#64;</span>github<span>&#46;</span>com</a>:<a class="reference external" href="mailto:akshaynanavati/python-stockfighter&#37;&#52;&#48;v0&#46;0&#46;1#egg=python-stockfighter">akshaynanavati/python-stockfighter<span>&#64;</span>v0<span>&#46;</span>0<span>&#46;</span>1#egg=python-stockfighter</a></div></blockquote>
+</div>
+<div class="section" id="repl">
+<h2>Repl<a class="headerlink" href="#repl" title="Permalink to this headline">¶</a></h2>
+<p>This library also provides a repl which can be run with <cite>sfrepl.py</cite> if this package is installed in the current <cite>venv</cite>.
+The repl can be used to buy/sell stocks and view order status from the command line. Supported repl methods:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">{buy,</span> <span class="pre">sell}</span> <span class="pre">&lt;order_type&gt;</span> <span class="pre">&lt;int&gt;</span> <span class="pre">shares</span> <span class="pre">of</span> <span class="pre">&lt;exchange&gt;:&lt;stock&gt;</span> <span class="pre">at</span> <span class="pre">&lt;price&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">set</span> <span class="pre">account</span> <span class="pre">&lt;account-number&gt;</span></code></li>
+<li><code class="docutils literal"><span class="pre">orderbook</span> <span class="pre">&lt;exchange&gt;:&lt;stock&gt;</span></code></li>
+</ul>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>Fork the repository, and open a PR for your feature(s). In the <cite>Makefile</cite> there are some convenience
+options to expedite development.</p>
+</div>
+</div>
+<div class="section" id="stockfighter">
+<h1>stockfighter<a class="headerlink" href="#stockfighter" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="stockfighter.html">stockfighter package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stockfighter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stockfighter.html#module-stockfighter.api">stockfighter.api module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stockfighter.html#module-stockfighter.config">stockfighter.config module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stockfighter.html#module-stockfighter.constants">stockfighter.constants module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stockfighter.html#module-stockfighter.exceptions">stockfighter.exceptions module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stockfighter.html#module-stockfighter.validators">stockfighter.validators module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
+<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
+<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to stockfighter&#8217;s documentation!</a></li>
+<li><a class="reference internal" href="#python-stockfighter">python-stockfighter</a><ul>
+<li><a class="reference internal" href="#installing">Installing</a></li>
+<li><a class="reference internal" href="#repl">Repl</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stockfighter">stockfighter</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="#">Documentation overview</a><ul>
+      <li>Next: <a href="stockfighter.html" title="next chapter">stockfighter package</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Akshay Nanavati.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.7</a>
+      
+      |
+      <a href="_sources/index.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
