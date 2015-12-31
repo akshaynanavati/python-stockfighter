@@ -2,3 +2,4 @@ ipdb
 ipython
 requests
 schematics
+Sphinx==1.3.1

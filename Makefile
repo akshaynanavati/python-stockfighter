@@ -13,4 +13,9 @@ clean-pyc:
 console:
 	@source venv/bin/activate; ipython -i -c 'from stockfighter import api'
 
-.PHONY: venv install clean clean-pyc console
+# ---- Documentation ----
+docs:
+	@source venv/bin/activate; cd docs; make html;
+	@cd ../python-stockfighter-docs/html; git add .; git commit -m "rebuilt docs"; git push origin gh-pages
+
+.PHONY: venv install clean clean-pyc console docs

@@ -33,8 +33,7 @@ class SyntaxError_(Exception):
         self.idx = idx
 
     def __str__(self):
-        line1 = 'Invalid Syntax:\n{}'.format(' '.join(self.tokens))
-        line2 = \
-            ' ' * len(''.join(self.tokens[:self.idx])) + \
+        return (
+            ' ' * len(''.join(self.tokens[:self.idx])) +
             '^' + ' ' * len(''.join(self.tokens[self.idx:]))
-        return '{}\n{}'.format(line1, line2)
+        )
