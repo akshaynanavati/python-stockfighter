@@ -1,6 +1,6 @@
 python-stockfighter
 ====
-A stockfighter API written in Python
+A stockfighter API written in Python. Docs can be found `here <http://akshaynanavati.github.io/python-stockfighter>`_.
 
 It wraps the api methods described here_ with Python function calls using the requests_ 
 library. This project is still a WIP, but the basic functionality exists. Things like tests,
