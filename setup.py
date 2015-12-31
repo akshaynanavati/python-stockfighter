@@ -8,7 +8,7 @@ install_requires = [
 
 setup(
     name='python-stockfighter',
-    version='0.0.2',
+    version='0.0.3',
     packages=['stockfighter'],
     install_requires=install_requires,
     include_package_data=True,
