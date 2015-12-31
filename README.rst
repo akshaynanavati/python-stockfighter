@@ -2,7 +2,7 @@ python-stockfighter
 ====
 A stockfighter API written in Python. Docs can be found `here <http://akshaynanavati.github.io/python-stockfighter>`_.
 
-It wraps the api methods described here_ with Python function calls using the requests_
+It wraps the api methods described `here <https://starfighter.readme.io/docs/>`_ with Python function calls using the requests_
 library. This project is still a WIP, but the basic functionality exists. Things like tests,
 documentation, and error handling are yet to be built. This project is simply meant to provide
 a nice python api for accessing the HTTP API provided by stockfighter. Please do not commit
@@ -32,5 +32,4 @@ Contributing
 Fork the repository, and open a PR for your feature(s). In the `Makefile` there are some convenience
 options to expedite development.
 
-.. _here: https://starfighter.readme.io/docs/
 .. _requests: http://docs.python-requests.org/en/latest/
