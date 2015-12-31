@@ -14,7 +14,9 @@ Installing
 This package is not yet on pypi. Thus, install it using pip editable:
 
     $ pip install -e git+git@github.com:akshaynanavati/python-stockfighter@<desired-version>#egg=python-stockfighter
+
 i.e.
+
     $ pip install -e git+git@github.com:akshaynanavati/python-stockfighter@v0.0.1#egg=python-stockfighter
 
 Repl
